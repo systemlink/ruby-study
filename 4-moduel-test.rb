@@ -66,14 +66,17 @@ module G2
   end
 end
 
+module G3
+end
+
 class H
-  include G # インスタンスメソッド
   def foo
     "H-foo"
   end
 end
 
 class H2 < H
+  include G3
   def foo
     "H2-foo"
   end
@@ -86,16 +89,16 @@ class I
   end
 end
 
-# 自分 < mixin(include)の継承元 < 継承の継承元 < 継承 < mixin(include) < Object < Kernel < BasicObject
+# 自分 < mixin(include) < 継承 < mixin(include)の継承元 < 継承の継承元 < Object < Kernel < BasicObject
 class J < H2
   include G2
   # extend G2 継承はancestorsで表示されない
 end
 
-puts "----- 1"
+puts "----- 3"
 puts H.new.foo # H-foo
 puts I.new.foo # I-foo
 puts I.foo # G-foo
 p I.ancestors # [I, Object, Kernel, BasicObject]
-p J.ancestors # [J, G2, H2, H, G, Object, Kernel, BasicObject]
+p J.ancestors # [J, G2, G, H2, G3, H, Object, Kernel, BasicObject]
 puts J.new.foo # G2-foo
