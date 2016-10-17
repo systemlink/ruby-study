@@ -1,6 +1,10 @@
 class Hoge
-  def huga1; end
-  def huga2; end
+  def huga1
+    puts "===>hoga1"
+  end
+  def huga2
+    puts "===>hoga2"
+  end
   alias :huga3 :huga2
   undef :huga2
 end
