@@ -21,7 +21,22 @@ describe RSpec::Matchers do
     it { expect(a: 'B').to_not have_key(:b) }
   end
 
-  describe '#foo?' do
-    it { expect(Hoge.new).to be_foo }
+  describe Hoge do
+    subject { Hoge.new }
+    describe '#foo?' do
+      it { should be_foo }
+    end
+
+    describe '#be_truthy' do
+      it { expect(subject.foo).to be_truthy }
+    end
+
+    describe '#be_falsey' do
+      it { expect(subject.foo).to_not be_falsey }
+    end
+
+    describe '#be_nil' do
+      it { expect(subject.nil).to be_nil }
+    end
   end
 end

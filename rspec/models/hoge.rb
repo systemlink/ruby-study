@@ -14,4 +14,7 @@ class Hoge
   def not_foo?
     false
   end
+
+  def nil
+  end
 end
