@@ -1,3 +1,30 @@
+=begin
+RSpec::Matchers
+  #be_empty
+    should be empty
+    should not be empty
+  #be_a_kind_of
+    should be a kind of Fixnum
+    should be a kind of Numeric
+  #be_an_instance_of
+    should not be an instance of Numeric
+    should be an instance of Fixnum
+  #have_key
+    should have key :a
+    should not have key :b
+  Hoge
+    #foo?
+      should be foo
+    #be_truthy
+      should be truthy
+    #be_falsey
+      should not be falsey
+    #be_nil
+      should be nil
+
+Finished in 0.00818 seconds (files took 0.13331 seconds to load)
+12 examples, 0 failures
+=end
 describe RSpec::Matchers do
   describe '#be_empty' do
     it { expect([]).to be_empty }
